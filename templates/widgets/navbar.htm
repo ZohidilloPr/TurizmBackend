@@ -1,0 +1,74 @@
+{% load static %}
+
+<nav id="nav-head">
+    <div class="marquee"><span>Veb sayt test rejimida ishlamoqda!</span></div>
+    <div class="nav-in">
+        <div class="brand">
+            <a href="/"><img src="{{ web_name.logo.url }}" width="70" alt=""></a>
+            <span><a href="/">{{ web_name.uz_name }}</a></span>
+        </div>
+        <div class="lang">
+            <a href="" class="a-hover">Uz</a> |
+            <a href="">Ru</a> |
+            <a href="">En</a>
+        </div>
+        <div class="navigate">
+            <ul>
+                <li>
+                    <a href="{% url 'areaslist' %}" id="hudud">{{ nav0.uz_name }}</a>
+                    <ol id="area">
+                        {% for uz in areas %}
+                            <li><a href="{% url 'areadetail' slug=uz.slug %}">{{ uz.uz_title }}</a></li>
+                        {% endfor %}
+                    </ol>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="{% url 'newslist' %}">{{ nav1.uz_name }}</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="#" id="space">{{ nav2.uz_name }}</a>
+                    <ol id="spaces">
+                        <li><a href="">Ziyorotgohlar</a></li>
+                        <li><a href="">Masjidlar</a></li>
+                        <li><a href="">Kafe va restaranlar</a></li>
+                    </ol>
+                </li>   
+            </ul>
+
+        </div>
+        <div class="contact">
+            <span id="phone-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                </svg>
+            </span>
+            <span id="phone-number">(0367) <b>1695125</b> </span>
+        </div>
+    </div>
+</nav>
+
+<!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+At aspernatur tempore facilis architecto ratione aperiam vitae nulla inventore veniam cupiditate 
+rem nostrum dicta illo atque soluta maiores qui corporis fugit veritatis quo, omnis magnam animi accusantium.
+Amet facilis assumenda tempore eum eveniet beatae aliquid praesentium quisquam temporibus. Itaque, mollitia atque. -->
+
+
+    <!-- <div class="directors directors-slider owl-carousel owl-theme">
+        <div class="director-item">
+            <div class="director-item__title">Viloyat hokimining matbuot kotibi</div>
+            <p>
+                <b>Qobulov Behzod O‘rmonjonovich</b> <br>
+                Telefon: 71-232-80-67,
+                E-mail: b.kabulov@toshvil.uz,
+            </p>
+            <div class="d-flex justify-content-between mb-4">
+                <a class="btn btn-o" href=""></a>
+                <a class="btn btn-o" href=""></a>
+            </div>
+            <img width="300" src="images/b.jpg">
+        </div>  
+    </div> -->

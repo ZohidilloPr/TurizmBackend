@@ -1,0 +1,32 @@
+{% extends '../pages/template.htm' %}
+{% load static %}
+{% block title %}
+    Yangiliklar   
+{% endblock title %}
+    {% block header %}
+        <div id="header-root" style="background: linear-gradient(rgba(30, 30, 30, 0.5), rgba(30, 30, 30, 0.5)), url('{{ bgNews.bg_img.url }}');">
+            <div class="header-title">
+                <span class="title">
+                    {{ news.uz_title }}
+                </span>
+            </div>
+        </div>  
+    {% endblock header %}
+        
+    {% block news %}
+        <div class="post">
+            <div class="post-img">
+                <img src="{{ news.post_img.url }}" alt="">
+            </div>
+            <div class="post-body">
+                <h1>{{ news.uz_title }}</h1>
+                <div class="post">
+                    <p>
+                        {{ news.uz_post }}
+                    </p>
+                </div> 
+                <div class="add_time"><span>{{ news.add_time }}</span></div>   
+            </div>
+        </div>
+    {% endblock news %}
+    

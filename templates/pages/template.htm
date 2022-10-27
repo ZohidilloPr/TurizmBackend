@@ -1,0 +1,47 @@
+{% extends '../base.htm' %}
+{% load static %}
+{% block title %}
+    
+{% endblock title %}
+{% block content %}
+    <!-- news section -->
+        {% include "../widgets/navbar.htm" %}
+    <!-- end section -->
+    <!-- start header -->
+        {% block header %}
+
+        {% endblock header %}
+    <!-- end header -->
+    <!-- start main -->
+        <div id="main-root">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-4 col-xxl-3" id="sidebar-left">
+                    <div class="sidebar-news">
+                        <h4>So'ngi yangiliklar</h4>
+                        {% for n in news_left %}                          
+                            <div class="news">
+                                <span>{{ n.add_time }}</span>
+                                <br>
+                                <span>
+                                    <a href="{% url 'newsone' slug=n.slug %}">{{ n.uz_title }}</a>
+                                </span>
+                                <hr>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-7 col-lg-8 col-xl-8 col-xxl-9" id="main-area">
+                    
+                    {% block news %}
+                    
+                    {% endblock news %}
+                        
+
+                </div>
+            </div>
+        </div>
+    <!-- end main -->
+    <!-- start footer -->
+        {% include "../basesections/footer.htm" %}
+    <!-- end footer -->
+{% endblock content %}

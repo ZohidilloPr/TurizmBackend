@@ -1,0 +1,31 @@
+{% extends '../pages/templateall.htm' %}
+
+{% block title %}
+    Yangiliklar
+{% endblock title %}
+
+{% block header %}
+    <div id="header-root" style="background: linear-gradient(rgba(30, 30, 30, 0.4), rgba(30, 30, 30, 0.4)), url('{{ bgNews.bg_img.url }}');">
+        <div class="header-title"><span>Yangiliklar</span></div>
+    </div>  
+{% endblock header %}
+
+{% block cards %}
+    {% for l in object_list %}
+        <div class="col-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 col-xxl-3 mb-4 news_cards">
+            <div class="news-card">
+                <div class="news-img" style="background-image: url('{{ l.post_img.url }}');"></div>
+                <div class="news-body">
+                    <div class="news-title">
+                        <p>{{ l.uz_title|truncatechars:50 }}</p>
+                    </div>
+                    <div class="news-descriptions">
+                        <p>{{ l.uz_description|truncatechars:80 }}</p>
+                    </div>
+                    <a href="{% url 'newsone' slug=l.slug %}">Batafsil</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock cards %}
+    
