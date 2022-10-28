@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'custom_user.apps.CustomUserConfig',
     'main.apps.MainConfig',
@@ -133,11 +134,11 @@ USE_TZ = True
 # STATIC_ROOT = 'home/zohidillo/turizm/static/'
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile/')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/')
 ]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 # MEDIA_URL = 'home/zohidillo/turizm/media/'
 # MEDIA_ROOT = 'home/zohidillo/turizm/media/'
