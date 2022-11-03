@@ -6,37 +6,68 @@
             <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
             <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
             <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="3"></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="4"></li>
         </ol>
-    
         <!-- Wrapper for carousel items -->
         <div class="carousel-inner">
-            <div class="carousel-item active" style="background: linear-gradient(rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4)), url({% static 'images/slide1.jpg' %})">
-                <div class="header-text">
-                    <div class="title">
-                        <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto maiores inventore facilis quisquam, corrupti voluptatem perspiciatis sunt mollitia repellat nulla exercitationem obcaecati provident atque consectetur!</p>
-                        <a href="">Batafsil</a>
+            {% for slider in header_slider %}
+                <div class="carousel-item" style="background: linear-gradient(rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4)), url('{{ slider.post_img.url }}')">
+                    <div class="header-text">
+                        <div class="title">
+                            <h2>{{ slider.uz_title }}</h2>
+                            <p>{{ slider.uz_description }}</p>
+                            <a href="{% url 'postview' slug=slider.slug %}">Batafsil</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item" style="background: linear-gradient(rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4)), url({% static 'images/slide2.jpg' %})">
-                <div class="header-text">
-                    <div class="title">
-                        <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto maiores inventore facilis quisquam, corrupti voluptatem perspiciatis sunt mollitia repellat nulla exercitationem obcaecati provident atque consectetur!</p>
-                        <a href="">Batafsil</a>
+            {% empty %}
+                <div class="carousel-item active" style="background: linear-gradient(rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4)), url({% static 'images/slide3.jpg' %})">
+                    <div class="header-text">
+                        <div class="title">
+                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto maiores inventore facilis quisquam, corrupti voluptatem perspiciatis sunt mollitia repellat nulla exercitationem obcaecati provident atque consectetur!</p>
+                            <a href="">Batafsil</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item" style="background: linear-gradient(rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4)), url({% static 'images/slide3.jpg' %})">
-                <div class="header-text">
-                    <div class="title">
-                        <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto maiores inventore facilis quisquam, corrupti voluptatem perspiciatis sunt mollitia repellat nulla exercitationem obcaecati provident atque consectetur!</p>
-                        <a href="">Batafsil</a>
+                <div class="carousel-item " style="background: linear-gradient(rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4)), url({% static 'images/slide1.jpg' %})">
+                    <div class="header-text">
+                        <div class="title">
+                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto maiores inventore facilis quisquam, corrupti voluptatem perspiciatis sunt mollitia repellat nulla exercitationem obcaecati provident atque consectetur!</p>
+                            <a href="">Batafsil</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="carousel-item" style="background: linear-gradient(rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4)), url({% static 'images/slide3.jpg' %})">
+                    <div class="header-text">
+                        <div class="title">
+                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto maiores inventore facilis quisquam, corrupti voluptatem perspiciatis sunt mollitia repellat nulla exercitationem obcaecati provident atque consectetur!</p>
+                            <a href="">Batafsil</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background: linear-gradient(rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4)), url({% static 'images/slide2.jpg' %})">
+                    <div class="header-text">
+                        <div class="title">
+                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto maiores inventore facilis quisquam, corrupti voluptatem perspiciatis sunt mollitia repellat nulla exercitationem obcaecati provident atque consectetur!</p>
+                            <a href="">Batafsil</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background: linear-gradient(rgba(50, 50, 50, 0.4), rgba(50, 50, 50, 0.4)), url({% static 'images/slide3.jpg' %})">
+                    <div class="header-text">
+                        <div class="title">
+                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto maiores inventore facilis quisquam, corrupti voluptatem perspiciatis sunt mollitia repellat nulla exercitationem obcaecati provident atque consectetur!</p>
+                            <a href="">Batafsil</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     
         <!-- Carousel controls -->

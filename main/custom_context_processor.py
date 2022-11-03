@@ -7,6 +7,7 @@ from .models import (
     VideoArxiv,
     WebSiteName,
     NavbarItems,
+    HeaderSlider,
     BackgroundImage,
     BackgroundImageForAreas,
     BackgroundImageForNews,
@@ -26,6 +27,7 @@ def common_variables(request):
     photos = PhotoArxiv.objects.all().order_by('-add_time')[:7]
     videos = VideoArxiv.objects.all().order_by('-add_time')[:3]
     slideshow = PhotoArxiv.objects.all().order_by('-add_time')[:100]
+    header_slider = HeaderSlider.objects.all().order_by('-add_time')[:5]
     shrines = Post.objects.filter(navbaritem__slug='ziyoratgohlar')[:8]
 
     context = {
@@ -43,5 +45,6 @@ def common_variables(request):
         'web_name': web_name,
         'slideshow':slideshow,
         'navbaritems':navbaritems,
+        'header_slider':header_slider,
     }
     return context
