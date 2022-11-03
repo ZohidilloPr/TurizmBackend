@@ -1,0 +1,32 @@
+{% extends '../pages/template.htm' %}
+{% load static %}
+{% block title %}
+    {{ object_nav }}
+{% endblock title %}
+    {% block header %}
+        <div id="header-root" style="background: linear-gradient(rgba(30, 30, 30, 0.5), rgba(30, 30, 30, 0.5)), url('{{ object_nav.navbar_img.url }}');">
+            <div class="header-title">
+                <span class="title">
+                    <span><a href="{% url 'poststype' slug=object_nav.slug %}">{{ object_nav }}</a></span> | {{ object.uz_title }}
+                </span>
+            </div>
+        </div>  
+    {% endblock header %}
+        
+    {% block news %}
+        <div class="post">
+            <div class="post-img">
+                <img src="{{ object.post_img.url }}" alt="">
+            </div>
+            <div class="post-body">
+                <h1>{{ object.uz_title }}</h1>
+                <div class="post">
+                    <p>
+                        {{ object.uz_post }}
+                    </p>
+                </div> 
+                <div class="add_time"><span>{{ object.add_time }}</span></div>   
+            </div>
+        </div>
+    {% endblock news %}
+    

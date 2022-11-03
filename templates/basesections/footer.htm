@@ -4,24 +4,24 @@
         <div class="sitemap">
             <div class="row">
                 <div class="footer-col">
-                    <h3>Hududlar</h3>
+                    <h3>{{ nav0.uz_name | title }}</h3>
                     <ul>
-                        {% for uz in areas %}
-                            <li><a href="{% url 'areadetail' slug=uz.slug %}">{{ uz.uz_title }}</a></li>
+                        {% for uz in arealist %}
+                            <li><a href="{% url 'areadetail' slug=uz.slug %}">{{ uz.uz_title | title }}</a></li>
                         {% endfor %}
                     </ul>
                 </div> 
                 <div class="footer-col">
-                    <h3>Yangiliklar</h3>
+                    <h3>{{ nav1.uz_name | title }}</h3>
                     <li>
                         <a href="{% url 'newslist' %}" class="nw">{{ nav1.uz_name }}</a>
                     </li>
                 </div>
                 <div class="footer-col">
-                    <h3>Diqqatga sazavor joylar</h3>
+                    <h3>{{ nav2.uz_name | title }}</h3>
                     <ul>
                         {% for uz in navbaritems %}
-                            <li><a href="">{{ uz.uz_name }}</a></li>
+                            <li><a href="{% url 'poststype' slug=uz.slug %}">{{ uz.uz_name }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>

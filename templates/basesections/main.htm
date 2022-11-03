@@ -13,25 +13,35 @@
                         <a href="{% url 'newsone' slug=n.slug %}">Batafsil</a>
                     </div>
                 </div>  
+            {% empty %}
+                <div class="news-colum">
+                    <div class="news-card" style="background-image: url('../static/images/news.jpg');">
+                        <!-- <div class="news-description"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptas pariatur maiores aspernatur nobis consectetur minus odit molestias accusamus dolor?</span></div> -->
+                    </div>
+                    <div class="news-title">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span> <br>
+                        <a href="">Batafsil</a>
+                    </div>
+                </div>
+                <div class="news-colum">
+                    <div class="news-card" style="background-image: url('../static/images/news.jpg');">
+                        <!-- <div class="news-description"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptas pariatur maiores aspernatur nobis consectetur minus odit molestias accusamus dolor?</span></div> -->
+                    </div>
+                    <div class="news-title">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span> <br>
+                        <a href="">Batafsil</a>
+                    </div>
+                </div>
+                <div class="news-colum">
+                    <div class="news-card" style="background-image: url('../static/images/news.jpg');">
+                        <!-- <div class="news-description"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptas pariatur maiores aspernatur nobis consectetur minus odit molestias accusamus dolor?</span></div> -->
+                    </div>
+                    <div class="news-title">
+                        <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span> <br>
+                        <a href="">Batafsil</a>
+                    </div>
+                </div>
             {% endfor %}
-            <div class="news-colum">
-                <div class="news-card" style="background-image: url('../static/images/news.jpg');">
-                    <!-- <div class="news-description"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptas pariatur maiores aspernatur nobis consectetur minus odit molestias accusamus dolor?</span></div> -->
-                </div>
-                <div class="news-title">
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span> <br>
-                    <a href="">Batafsil</a>
-                </div>
-            </div>
-            <div class="news-colum">
-                <div class="news-card" style="background-image: url('../static/images/news.jpg');">
-                    <!-- <div class="news-description"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid voluptas pariatur maiores aspernatur nobis consectetur minus odit molestias accusamus dolor?</span></div> -->
-                </div>
-                <div class="news-title">
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing.</span> <br>
-                    <a href="">Batafsil</a>
-                </div>
-            </div>
         </div>
         <div class="all">
             <a href="{% url 'newslist' %}">Barcha yangiliklar</a>
@@ -90,10 +100,28 @@
             <a href="">Barcha yangiliklar</a>
         </div> -->
     </section>
+    <section id="video-galary">
+        <h2>Video lavhalar</h2>
+        <div class="albom">
+            {% for v in videos %}
+                <div class="video">
+                    <video controls poster="{{ v.foster.url }}">
+                        <source src="{{ v.video.url }}" type="video/mp4">
+                        Sizning browseringiz videoni ocha olmayapti iltimos boshqa browser orqali tekshirib ko'ring!
+                    </video>
+                </div>
+            {% empty %}
+                <h1>Hozirda video lavhalar mavjud emas</h1>
+            {% endfor %}
+        </div>
+        <div class="all">
+            <a href="">Barcha videolar</a>
+        </div>
+    </section>
     <section id="hududlar">
         <h2>Hududlar</h2>
         <div id="areas">
-            {% for a in areas %}              
+            {% for a in arealist %}              
                 <div class="area-colum">
                     <div class="area-card" style="background: linear-gradient(rgba(30, 30, 30, 0.2), rgba(30, 30, 30, 0.2)), url('{{ a.post_img.url }}');"></div>
                     <div class="area-title">
@@ -102,31 +130,32 @@
                     </div>
                     <a href="{% url 'areadetail' slug=a.slug %}" class="more_read">Batafsil</a>
                 </div>
+            {% empty %}
+                <div class="area-colum">
+                    <div class="area-card" style="background: linear-gradient(rgba(30, 30, 30, 0.2), rgba(30, 30, 30, 0.2)), url('../static/images/hududlar/Olmaliq.JPG');"></div>
+                    <div class="area-title">
+                        <span><a href="">Olmaliq shaxar</a></span>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
+                    </div>
+                    <a href="" class="more_read" >Batafsil</a>
+                </div>
+                <div class="area-colum">
+                    <div class="area-card" style="background: linear-gradient(rgba(30, 30, 30, 0.2), rgba(30, 30, 30, 0.2)), url('../static/images/hududlar/ohangaron.jpeg');"></div>
+                    <div class="area-title">
+                        <span><a href="">Ohangaron shaxar</a></span>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
+                    </div>
+                    <a href="" class="more_read" >Batafsil</a>
+                </div>
+                <div class="area-colum">
+                    <div class="area-card" style="background: linear-gradient(rgba(30, 30, 30, 0.2), rgba(30, 30, 30, 0.2)), url('../static/images/hududlar/chirchiq.jpg');"></div>
+                    <div class="area-title">
+                        <span><a href="">Chirchiq shaxar</a></span>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
+                    </div>
+                    <a href="" class="more_read" >Batafsil</a>
+                </div>
             {% endfor %}
-            <div class="area-colum">
-                <div class="area-card" style="background: linear-gradient(rgba(30, 30, 30, 0.2), rgba(30, 30, 30, 0.2)), url('../static/images/hududlar/Olmaliq.JPG');"></div>
-                <div class="area-title">
-                    <span><a href="">Olmaliq shaxar</a></span>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
-                </div>
-                <a href="" class="more_read" >Batafsil</a>
-            </div>
-            <div class="area-colum">
-                <div class="area-card" style="background: linear-gradient(rgba(30, 30, 30, 0.2), rgba(30, 30, 30, 0.2)), url('../static/images/hududlar/ohangaron.jpeg');"></div>
-                <div class="area-title">
-                    <span><a href="">Ohangaron shaxar</a></span>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
-                </div>
-                <a href="" class="more_read" >Batafsil</a>
-            </div>
-            <div class="area-colum">
-                <div class="area-card" style="background: linear-gradient(rgba(30, 30, 30, 0.2), rgba(30, 30, 30, 0.2)), url('../static/images/hududlar/chirchiq.jpg');"></div>
-                <div class="area-title">
-                    <span><a href="">Chirchiq shaxar</a></span>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
-                </div>
-                <a href="" class="more_read" >Batafsil</a>
-            </div>
         </div>
         <div class="all">
             <a href="{% url 'areaslist' %}">Barcha Hududlar</a>
@@ -136,50 +165,61 @@
         <h2>Rasmlar</h2>
         <div class="images-grid">
             <ul>
-                <li>
-                    <img src="https://avatars.mds.yandex.net/i?id=233d06705f31c88b22bbae50984773ed-3418372-images-thumbs&n=13" alt="hello">
-                    <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                </li>
-                <li>
-                    <img src="https://priroda.club/uploads/posts/2021-12/1639063815_2-priroda-club-p-chimganskie-gori-priroda-krasivo-foto-2.jpg" alt="">
-                    <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                </li>
-                <li>
-                    <img src="https://avatars.mds.yandex.net/i?id=fbd0232518851ea0ca9ad08b24b37e08-4569669-images-thumbs&ref=rim&n=33&w=281&h=188" alt="">
-                    <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                </li>
-                <li>
-                    <img src="https://static.smartafisha.ru/photo/training/25/37/253760/photo_1888254_5bffed071f3b4.jpg" alt="">
-                    <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                </li>
-                <li>
-                    <img src="https://ev-travel.ru/assets/gallery/120/3115.jpg" alt="">
-                    <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                </li>
-                <li>
-                    <img src="https://vsegda-pomnim.com/uploads/posts/2022-04/1649205935_30-vsegda-pomnim-com-p-priroda-samarkanda-foto-31.jpg" alt="">
-                    <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                </li>
-                <li>
-                    <img src="https://priroda.club/uploads/posts/2021-12/1639602508_49-priroda-club-p-polya-makov-v-krimu-priroda-kraisvo-foto-52.jpg" alt="">
-                    <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                </li>
-                <li>
-                    <img src="https://animeshka.org/uploads/posts/2022-02/1644917814_7-animeshka-org-p-mountains-of-uzbekistan-priroda-foto-9.jpg" alt="">
-                    <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                </li>
+                {% for p in photos %}
+                    <li>
+                        <img src="{{ p.photo.url }}" alt="hello">
+                        <div class="overlay-text-image"><span>{{ p.uz_name }}</span></div>
+                    </li>
+                {% empty %}
+                    <li>
+                        <img src="https://priroda.club/uploads/posts/2021-12/1639063815_2-priroda-club-p-chimganskie-gori-priroda-krasivo-foto-2.jpg" alt="">
+                        <div class="overlay-text-image"><span>Photo Arxiv</span></div>
+                    </li>
+                    <li>
+                        <img src="https://priroda.club/uploads/posts/2021-12/1639063815_2-priroda-club-p-chimganskie-gori-priroda-krasivo-foto-2.jpg" alt="">
+                        <div class="overlay-text-image"><span>Photo Arxiv</span></div>
+                    </li>
+                    <li>
+                        <img src="https://avatars.mds.yandex.net/i?id=fbd0232518851ea0ca9ad08b24b37e08-4569669-images-thumbs&ref=rim&n=33&w=281&h=188" alt="">
+                        <div class="overlay-text-image"><span>Photo Arxiv</span></div>
+                    </li>
+                    <li>
+                        <img src="https://static.smartafisha.ru/photo/training/25/37/253760/photo_1888254_5bffed071f3b4.jpg" alt="">
+                        <div class="overlay-text-image"><span>Photo Arxiv</span></div>
+                    </li>
+                    <li>
+                        <img src="https://ev-travel.ru/assets/gallery/120/3115.jpg" alt="">
+                        <div class="overlay-text-image"><span>Photo Arxiv</span></div>
+                    </li>
+                    <li>
+                        <img src="https://vsegda-pomnim.com/uploads/posts/2022-04/1649205935_30-vsegda-pomnim-com-p-priroda-samarkanda-foto-31.jpg" alt="">
+                        <div class="overlay-text-image"><span>Photo Arxiv</span></div>
+                    </li>
+                    <li>
+                        <img src="https://priroda.club/uploads/posts/2021-12/1639602508_49-priroda-club-p-polya-makov-v-krimu-priroda-kraisvo-foto-52.jpg" alt="">
+                        <div class="overlay-text-image"><span>Photo Arxiv</span></div>
+                    </li>
+                    <li>
+                        <img src="https://animeshka.org/uploads/posts/2022-02/1644917814_7-animeshka-org-p-mountains-of-uzbekistan-priroda-foto-9.jpg" alt="">
+                        <div class="overlay-text-image"><span>Photo Arxiv</span></div>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
         <div id="images-modal">
             <div class="images-content">
                 <div class="fotorama" data-loop="true" data-autoplay="true" data-autoplay="500" data-nav="thumbs" data-width="100%"  data-ratio="800/600" data-minwidth="400" data-maxwidth="1000" data-minheight="200" data-maxheight="100%">
-                    <img src="https://avatars.mds.yandex.net/i?id=233d06705f31c88b22bbae50984773ed-3418372-images-thumbs&n=13" alt="">
-                    <img src="https://priroda.club/uploads/posts/2021-12/1639063815_2-priroda-club-p-chimganskie-gori-priroda-krasivo-foto-2.jpg" alt="">
-                    <img src="https://ev-travel.ru/assets/gallery/120/3115.jpg" alt="">
-                    <img src="https://vsegda-pomnim.com/uploads/posts/2022-04/1649205935_30-vsegda-pomnim-com-p-priroda-samarkanda-foto-31.jpg" alt="">
-                    <img src="https://avatars.mds.yandex.net/i?id=fbd0232518851ea0ca9ad08b24b37e08-4569669-images-thumbs&ref=rim&n=33&w=281&h=188" alt="">
-                    <img src="https://priroda.club/uploads/posts/2021-12/1639063815_2-priroda-club-p-chimganskie-gori-priroda-krasivo-foto-2.jpg" alt="">
-                    <img src="https://avatars.mds.yandex.net/i?id=3d3de0d18d452727e272c9b69b4aff1b-5092546-images-thumbs&n=13" alt="">
+                    {% for s in slideshow %}    
+                        <img src="{{ s.photo.url }}" alt="">
+                    {% empty %}    
+                        <img src="https://priroda.club/uploads/posts/2021-12/1639063815_2-priroda-club-p-chimganskie-gori-priroda-krasivo-foto-2.jpg" alt="">
+                        <img src="https://ev-travel.ru/assets/gallery/120/3115.jpg" alt="">
+                        <img src="https://vsegda-pomnim.com/uploads/posts/2022-04/1649205935_30-vsegda-pomnim-com-p-priroda-samarkanda-foto-31.jpg" alt="">
+                        <img src="https://avatars.mds.yandex.net/i?id=fbd0232518851ea0ca9ad08b24b37e08-4569669-images-thumbs&ref=rim&n=33&w=281&h=188" alt="">
+                        <img src="https://ev-travel.ru/assets/gallery/120/3115.jpg" alt="">
+                        <img src="https://priroda.club/uploads/posts/2021-12/1639063815_2-priroda-club-p-chimganskie-gori-priroda-krasivo-foto-2.jpg" alt="">
+                        <img src="https://avatars.mds.yandex.net/i?id=3d3de0d18d452727e272c9b69b4aff1b-5092546-images-thumbs&n=13" alt="">
+                    {% endfor %}
                 </div>
                 <div id="close">
                     <div class="btn-close btn-close-white" id="close-slideshow" aria-label="Close"></div>
@@ -188,44 +228,63 @@
         </div>
         <div class="all">
             <button id="slideshow-btn">Slideshow</button>
-            <a href="">Barcha rasmlar</a>
+            <a href="{% url 'photoslist' %}">Barcha rasmlar</a>
         </div>
     </section>
     <section id="places">
         <h2>Diqqatga sazavor joylar</h2>
         <div id="places_card">
-            <div class="places-collum">
-                <div class="places-card" style="background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://avatars.mds.yandex.net/i?id=9f9b4e5d6daef1d91acf7a7c9d707637-5652108-images-thumbs&n=13');"></div>
-                <div class="places-title">
-                    <span><a href="">Zangiota yodgorlik majmui ziyoratgohi</a></span>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
+            {% for obj in shrines %}  
+                <div class="places-collum">
+                    <div class="places-card" style="background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('{{ obj.post_img.url }}');"></div>
+                    <div class="places-title">
+                        <span><a href="">{{ obj.uz_title }}</a></span>
+                        <p>{{ obj.uz_description }}</p>
+                    </div>
+                    <a href="{% url 'postview' slug=obj.slug %}" class="more_read">Batafsil</a>
                 </div>
-                <a href="" class="more_read" >Batafsil</a>
-            </div>
-            <div class="places-collum">
-                <div class="places-card" style="background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://ic.pics.livejournal.com/elfaraz/63609763/36450/36450_900.jpg');"></div>
-                <div class="places-title">
-                    <span><a href="">Parpi ota ziyoratgohi</a></span>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
+            {% empty %}
+                <div class="places-collum">
+                    <div class="places-card" style="background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://avatars.mds.yandex.net/i?id=3261fd04da3555515506498a4fd4fdde-5644585-images-thumbs&n=13');"></div>
+                    <div class="places-title">
+                        <span><a href="">“Xazrat Ali Buva” ziyoratgohi</a></span>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
+                    </div>
+                    <a href="" class="more_read" >Batafsil</a>
                 </div>
-                <a href="" class="more_read" >Batafsil</a>
-            </div>
-            <div class="places-collum">
-                <div class="places-card" style="background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://avatars.mds.yandex.net/i?id=3261fd04da3555515506498a4fd4fdde-5644585-images-thumbs&n=13');"></div>
-                <div class="places-title">
-                    <span><a href="">“Xazrat Ali Buva” ziyoratgohi</a></span>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
+                <div class="places-collum">
+                    <div class="places-card" style="background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://avatars.mds.yandex.net/i?id=6a4c6acb740481115da2bfef80d62b5e-2374603-images-thumbs&n=13');"></div>
+                    <div class="places-title">
+                        <span><a href="">Zarkent ota ziyoratgohi</a></span>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
+                    </div>
+                    <a href="" class="more_read" >Batafsil</a>
                 </div>
-                <a href="" class="more_read" >Batafsil</a>
-            </div>
-            <div class="places-collum">
-                <div class="places-card" style="background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://avatars.mds.yandex.net/i?id=6a4c6acb740481115da2bfef80d62b5e-2374603-images-thumbs&n=13');"></div>
-                <div class="places-title">
-                    <span><a href="">Zarkent ota ziyoratgohi</a></span>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
+                <div class="places-collum">
+                    <div class="places-card" style="background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://avatars.mds.yandex.net/i?id=6a4c6acb740481115da2bfef80d62b5e-2374603-images-thumbs&n=13');"></div>
+                    <div class="places-title">
+                        <span><a href="">Zarkent ota ziyoratgohi</a></span>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
+                    </div>
+                    <a href="" class="more_read" >Batafsil</a>
                 </div>
-                <a href="" class="more_read" >Batafsil</a>
-            </div>
+            {% endfor %}
+                <div class="places-collum">
+                    <div class="places-card" style="background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://avatars.mds.yandex.net/i?id=6a4c6acb740481115da2bfef80d62b5e-2374603-images-thumbs&n=13');"></div>
+                    <div class="places-title">
+                        <span><a href="">Zarkent ota ziyoratgohi</a></span>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
+                    </div>
+                    <a href="" class="more_read" >Batafsil</a>
+                </div>
+                <div class="places-collum">
+                    <div class="places-card" style="background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://avatars.mds.yandex.net/i?id=3261fd04da3555515506498a4fd4fdde-5644585-images-thumbs&n=13');"></div>
+                    <div class="places-title">
+                        <span><a href="">“Xazrat Ali Buva” ziyoratgohi</a></span>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, unde!</p>
+                    </div>
+                    <a href="" class="more_read" >Batafsil</a>
+                </div>
         </div>
         <div class="all">
             <a href="">Barcha Hududlar</a>
@@ -233,12 +292,9 @@
     </section>
     <section id="menu-places">
         <div id="menu-box">
-            <div class="box" style="background-image: url('https://mtdata.ru/u29/photo1726/20842064339-0/original.jpg');"><span><a href="">Kafe va Restaranlar</a></span></div>
-            <div class="box" style="background-image: url('https://pbs.twimg.com/media/ED6BdDYWkAEKz6c.jpg:large');"><span><a href="">Masjidlar</a></span></div>
-            <div class="box" style="background-image: url('https://avatars.mds.yandex.net/i?id=9f9b4e5d6daef1d91acf7a7c9d707637-5652108-images-thumbs&n=13');"><span><a href="">Ziyorotgohlar</a></span></div>
-            <div class="box" style="background-image: url('https://www.multitour.ru/files/imgs/aacfed26a7594b2455ac9e10370748ce60297e00.jpeg');"><span><a href="">Mehmonxonalar</a></span></div>
-            <div class="box" style="background-image: url('https://i.pinimg.com/originals/32/3d/42/323d424a04860875b169672130df29aa.jpg');"><span><a href="">Dam olish maskanlari</a></span></div>
-            <div class="box" style="background-image: url('https://pbs.twimg.com/media/D55CerQXkAEdaLz.jpg:large');"><span><a href="">San'at va yodgorliklar</a></span></div>
+            {% for uz in navbaritems %}  
+                <div class="box" style="background-image: url('{{ uz.navbar_img.url }}');"><span><a href="{% url 'poststype' slug=uz.slug %}">{{ uz.uz_name }}</a></span></div>
+            {% endfor %}
         </div>
     </section>
 </main>

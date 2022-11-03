@@ -5,7 +5,7 @@
     <div class="nav-in">
         <div class="brand">
             <a href="/"><img src="{{ web_name.logo.url }}" width="70" alt=""></a>
-            <span><a href="/">{{ web_name.uz_name }}</a></span>
+            <span><a href="/">{{ web_name.uz_name | title }}</a></span>
         </div>
         <div class="lang">
             <a href="" class="a-hover">Uz</a> |
@@ -15,26 +15,26 @@
         <div class="navigate">
             <ul>
                 <li>
-                    <a href="{% url 'areaslist' %}" id="hudud">{{ nav0.uz_name }}</a>
+                    <a href="" id="hudud">{{ nav0.uz_name | title }}</a>
                     <ol id="area">
-                        {% for uz in areas %}
-                            <li><a href="{% url 'areadetail' slug=uz.slug %}">{{ uz.uz_title }}</a></li>
+                        {% for uz in arealist %}
+                            <li><a href="{% url 'areadetail' slug=uz.slug %}">{{ uz.uz_title | title }}</a></li>
                         {% endfor %}
                     </ol>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="{% url 'newslist' %}">{{ nav1.uz_name }}</a>
+                    <a href="{% url 'newslist' %}">{{ nav1.uz_name | title }}</a>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="#" id="space">{{ nav2.uz_name }}</a>
+                    <a href="#" id="space">{{ nav2.uz_name | title }}</a>
                     <ol id="spaces">
-                        <li><a href="">Ziyorotgohlar</a></li>
-                        <li><a href="">Masjidlar</a></li>
-                        <li><a href="">Kafe va restaranlar</a></li>
+                        {% for uz in navbaritems %}
+                            <li><a href="{% url 'poststype' slug=uz.slug %}">{{ uz.uz_name | title }}</a></li>
+                        {% endfor %}
                     </ol>
                 </li>   
             </ul>

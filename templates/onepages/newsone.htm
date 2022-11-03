@@ -4,10 +4,10 @@
     Yangiliklar   
 {% endblock title %}
     {% block header %}
-        <div id="header-root" style="background: linear-gradient(rgba(30, 30, 30, 0.5), rgba(30, 30, 30, 0.5)), url('{{ bgNews.bg_img.url }}');">
+        <div id="header-root" style="background: linear-gradient(rgba(30, 30, 30, 0.5), rgba(30, 30, 30, 0.5)), url('{{ bgobject.bg_img.url }}');">
             <div class="header-title">
                 <span class="title">
-                    {{ news.uz_title }}
+                    {{ object.uz_title }}
                 </span>
             </div>
         </div>  
@@ -16,16 +16,16 @@
     {% block news %}
         <div class="post">
             <div class="post-img">
-                <img src="{{ news.post_img.url }}" alt="">
+                <img src="{{ object.post_img.url }}" alt="">
             </div>
             <div class="post-body">
-                <h1>{{ news.uz_title }}</h1>
+                <h1>{{ object.uz_title }}</h1>
                 <div class="post">
                     <p>
-                        {{ news.uz_post }}
+                        {{ object.uz_post }}
                     </p>
                 </div> 
-                <div class="add_time"><span>{{ news.add_time }}</span></div>   
+                <div class="add_time"><span>{{ object.add_time }}</span></div>   
             </div>
         </div>
     {% endblock news %}

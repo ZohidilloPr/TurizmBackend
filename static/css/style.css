@@ -557,6 +557,108 @@ main #menu-places #menu-box .box span a, main #menu-places #menu-box .box span s
   font-weight: 700;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+main #video-galary .albom {
+  margin: 30px 0;
+  text-align: center;
+}
+main #video-galary .albom .video {
+  width: 96%;
+  padding: 0 20px;
+}
+main #video-galary .albom .video video {
+  height: 550px;
+}
+
+.albom #photo-galary .images-grid ul {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+.albom #photo-galary .images-grid ul::after {
+  content: " ";
+  flex-basis: auto;
+}
+.albom #photo-galary .images-grid ul li {
+  flex: 25%;
+  height: 300px;
+  cursor: pointer;
+  overflow: hidden;
+  flex-basis: auto;
+  position: relative;
+}
+.albom #photo-galary .images-grid ul li:hover .overlay-text-image {
+  transform: scale(1);
+}
+.albom #photo-galary .images-grid ul li:hover img {
+  transform: scale(1.6);
+}
+.albom #photo-galary .images-grid ul li img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: middle;
+  transition: 1s all ease-in-out;
+}
+.albom #photo-galary .images-grid ul li .overlay-text-image {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: #fff;
+  position: absolute;
+  transform: scale(0);
+  align-items: center;
+  justify-content: center;
+  transition: 1s all ease-in-out;
+  background: rgba(57, 57, 57, 0.502);
+}
+.albom #photo-galary #images-modal {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(50, 50, 50, 0.7);
+}
+.albom #photo-galary #images-modal .images-content {
+  width: 60%;
+  height: 100%;
+  margin: auto;
+  padding: 30px;
+}
+.albom #photo-galary #images-modal .images-content .fotorama img {
+  height: 300px;
+}
+.albom #photo-galary #images-modal .images-content #close {
+  top: 3%;
+  left: 95%;
+  position: absolute;
+}
+.albom #photo-galary .all button {
+  color: #fff;
+  top: 50%;
+  padding: 0;
+  left: 97.2%;
+  border: none;
+  padding: 10px;
+  position: fixed;
+  border-radius: 100%;
+  background: #03396C;
+  transform: translate(-50%, -97%);
+}
+.albom #photo-galary .all button svg {
+  width: 25px;
+  height: 25px;
+  transition: 0.5s all ease-in-out;
+}
+.albom #photo-galary .all button:hover svg {
+  width: 35px;
+  height: 35px;
+}
 
 footer {
   background: #010C17;
@@ -684,12 +786,20 @@ footer #footer_main .sitemap .row .footer-col .nw:hover {
 #header-root .header-title span {
   color: #fff;
   font-size: 60px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "verdana", sans-serif;
 }
 #header-root .header-title .title {
   width: 70%;
   display: block;
   font-size: 40px;
+}
+#header-root .header-title .title span a, #header-root .header-title .title span main section .all button, main section .all #header-root .header-title .title span button {
+  color: #03396C;
+  font-size: 45px;
+  font-weight: 800;
+}
+#header-root .header-title .title span a:hover, #header-root .header-title .title span main section .all button:hover, main section .all #header-root .header-title .title span button:hover {
+  text-decoration: underline !important;
 }
 
 #main-root {

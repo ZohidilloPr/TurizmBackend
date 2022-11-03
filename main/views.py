@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from .models import (
-    AboutAreas,
-    News
-)
 
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+
+from main.models import (
+    PhotoArxiv,
+    Post,
+    News, 
+    Hududlar, 
+    NavbarItems, 
+)
 
 # Create your views here.
 def test(request):
@@ -17,27 +21,45 @@ def testPk(request):
 def testAll(request):
     return render(request, 'pages/templateall.htm')
 
-def NewsOne(request, slug):
-    """ Bitta yangilikni ko'rsatadi """
-    news = News.objects.get(slug=slug)
-    return render(request, 'onepages/newsone.htm', context={
-        'news':news,
-    })
-
-class NewsList(ListView):
-    """ Hamma Yangiliklarni ko'rsatadi """
-    model= News
-    ordering = '-add_time'
-    template_name = 'allpages/news.htm'
-
-class AreasDetail(DetailView):
-    """ Hamma hududlarni ko'rsatadi """
-    model = AboutAreas
-    template_name = 'onepages/areasone.htm'
-
-class AreasList(ListView):
-    """ Hamma hududlarni ko'rsatadi """
-    model = AboutAreas
+class AreaList(ListView):
+    model = Hududlar
     ordering = 'uz_title'
     template_name = 'allpages/areas.htm'
 
+class AreaDetail(DetailView):
+    model = Hududlar
+    template_name = 'onepages/areasone.htm'
+
+class NewsList(ListView):
+    model = News
+    paginate_by = 16
+    ordering = '-add_time'
+    template_name = 'allpages/news.htm'
+
+class NewsDetail(DetailView):
+    model = News
+    template_name = 'onepages/newsone.html'
+
+class PhotosList(ListView):
+    """ Rasmlar albomi uchun view """
+    model = PhotoArxiv
+    paginate_by = 200
+    ordering = '-add_time'
+    template_name = 'allpages/photos.htm'
+
+def PostType(request, slug):
+    posts = Post.objects.all().filter(navbaritem__slug=slug)
+    navbaritem = NavbarItems.objects.get(slug=slug)
+    return render(request, 'allpages/posts.htm', context={
+        'object_list':posts,
+        'object': navbaritem,
+        'slug':slug,
+    })
+
+def PostView(request, slug):
+    post = Post.objects.get(slug=slug)
+    navbar = NavbarItems.objects.get(id=post.navbaritem.id)
+    return render(request, 'onepages/post.htm', context={
+        'object':post,
+        'object_nav': navbar
+    })

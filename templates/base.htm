@@ -36,9 +36,10 @@
     <script>
         $(document).ready(function(){
             $('.marquee').marquee({
-                speed: 200,
+                speed: 80,
             })
             $('#images-modal').hide();
+            $("#slideshow-btn").hide();
             $('#slideshow-btn').click(function(){
                 $('#images-modal').slideDown(1000);
             })
@@ -147,13 +148,26 @@
                     }
                 ]
             });
+            
+            $('.albom').slick({
+                slidesToShow: 1,
+                dots:true,
+                centerMode: true,
+                prevArrow: '<button type="button" data-role="none" class="slick-prev slick-arrow">Previous</button>',
+                nextArrow: '<button type="button" data-role="none" class="slick-next slick-arrow">Next</button>',
+                
+            });
+
             $(window).scroll(function(){
                 if (document.documentElement.scrollTop > 10) {
                     $('#nav-head').addClass('scrol-fixed');
                     $(".to-top").show(500);
+                    $("#slideshow-btn").show(500);
+                    
                 } else {
                     $('#nav-head').removeClass('scrol-fixed');
                     $(".to-top").hide(200);
+                    $("#slideshow-btn").hide(200);
                 }
             })
             $("#myCarousel").carousel();

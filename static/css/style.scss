@@ -634,7 +634,126 @@ main{
             }
         }
     }
+    #video-galary{
+        .albom{
+            margin: 30px 0;
+            text-align: center;
+            .video{
+                width: 96%;
+                padding: 0 20px;
+                video{
+                    height: 550px;
+                }
+            }
+        }
+    }
 }
+
+.albom{
+    #photo-galary{
+        .images-grid{
+            ul{
+                // gap: 5px;    
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: start;
+                &::after{
+                    content: " ";
+                    flex-basis: auto;
+                }
+                li{
+                    flex: 25%;
+                    height: 300px;
+                    cursor: pointer;
+                    overflow: hidden;
+                    flex-basis: auto;
+                    position: relative;
+                    &:hover{
+                        .overlay-text-image{
+                            transform: scale(1);
+                        }
+                        img{
+                            transform: scale(1.6);
+                        }
+                    }
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        vertical-align: middle;
+                        transition: 1s all ease-in-out;
+                    }
+                    .overlay-text-image{
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        color: $color3;
+                        position: absolute;
+                        transform: scale(0);
+                        align-items: center;
+                        justify-content: center;
+                        transition: 1s all ease-in-out;
+                        background: rgba(57, 57, 57, 0.502);
+                    }
+                }
+            }
+        }
+        #images-modal{
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            height: 100vh;
+            position: fixed;
+            background-color: rgba(50, 50, 50, 0.7);
+            .images-content{
+                width: 60%;
+                height: 100%;
+                margin: auto;
+                padding: 30px;
+                .fotorama{
+                    img{
+                        height: 300px;
+                    }
+                }
+                #close{
+                    top: 3%;
+                    left: 95%;
+                    position: absolute;
+                }
+            }
+        }
+        .all{
+            button{
+                color: $color3;
+                top: 50%;
+                padding: 0;
+                left: 97.2%;
+                border: none;
+                padding: 10px;
+                position: fixed;
+                border-radius: 100%;
+                background: $color1;
+                transform: translate(-50%, -97%);
+                svg{
+                    width: 25px;
+                    height: 25px;
+                    transition: 0.5s all ease-in-out;
+                }
+                &:hover{
+                    svg{
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 // end main
 
 // start footer
@@ -783,12 +902,22 @@ footer{
         span{
             color: $color3;
             font-size: 60px;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'verdana', sans-serif;
         }
         .title{
             width: 70%;
             display: block;
-            font-size: 40px
+            font-size: 40px;
+            span{
+                a{                    
+                    color: $color1;
+                    font-size: 45px;
+                    font-weight: 800;
+                    &:hover{
+                        text-decoration: underline !important;
+                    }
+                }
+            }
         }
     }
 }
