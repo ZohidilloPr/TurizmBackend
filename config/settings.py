@@ -89,7 +89,7 @@ DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 #         'NAME': 'turizm_db',
-#         'USER': 'turizmAdmin',
+#         'USER': 'turizmadmin',
 #         'PASSWORD': 'database_turizm',
 #         'HOST': 'localhost',
 #         'PORT': '',
