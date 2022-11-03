@@ -1,17 +1,18 @@
-from django.shortcuts import render
 
+from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
 from main.models import (
-    PhotoArxiv,
     Post,
     News, 
     Hududlar, 
+    PhotoArxiv,
     NavbarItems, 
 )
 
 # Create your views here.
+
 def test(request):
     return render(request, 'index.htm')
 

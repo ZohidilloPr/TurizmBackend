@@ -1,5 +1,4 @@
 from django.urls import path
-from main.models import PhotoArxiv
 
 from main.views import (
     test, 
@@ -13,6 +12,7 @@ from main.views import (
     AreaList,
     AreaDetail,
     PhotosList,
+
 )
 
 urlpatterns = [
