@@ -1,82 +1,89 @@
-{% extends '../pages/template.htm' %}
+{% extends '../pages/templateall.htm' %}
 {% load static %}
 {% block title %}
     Photo Arxiv
 {% endblock title %}
     {% block header %}
-        <div id="header-root" style="background: linear-gradient(rgba(30, 30, 30, 0.5), rgba(30, 30, 30, 0.5)), url('');">
+        <div id="header-root" style="background: linear-gradient(rgba(30, 30, 30, 0.5), rgba(30, 30, 30, 0.5)), url('{{randomBG.photos.url}}');">
             <div class="header-title">
-                <span class="title">
-                    Rasmlar
+                <span>
+                    {% if '/en/' in request.path %}
+                        Photos
+                    {% elif '/ru/' in request.path %} 
+                        Фото
+                    {% else %}
+                        Rasmlar
+                    {% endif %}
                 </span>
             </div>
         </div>  
     {% endblock header %}
         
-    {% block news %}
+    {% block cards %}
+        <div class="all ms-5" id="slidefixed">
+            <button id="slideshow-btn" class="btn btn-primary" title="Slideshow">
+                <span>Slideshow</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                </svg>
+            </button>
+        </div>
+        <div id="images-modal">
+            <div class="images-content">
+                <div class="fotorama" data-loop="true" data-autoplay="true" data-autoplay="500" data-nav="thumbs" data-width="100%"  data-ratio="800/600" data-minwidth="400" data-maxwidth="1000" data-minheight="200" data-maxheight="100%">
+                    {% for obj in object_list %}
+                        <img src="{{ obj.photos.url }}" alt="">
+                    {% endfor %}
+                </div>
+                <div id="close">
+                    <div class="btn-close btn-close-white" id="close-slideshow" aria-label="Close"></div>
+                </div>
+            </div>
+        </div>
         <div class="albom mt-5">
             <section id="photo-galary">
                 <div class="images-grid">
                     <ul>
-                        <li>
-                            <img src="https://avatars.mds.yandex.net/i?id=233d06705f31c88b22bbae50984773ed-3418372-images-thumbs&n=13" alt="hello">
-                            <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                        </li>
-                        <li>
-                            <img src="https://priroda.club/uploads/posts/2021-12/1639063815_2-priroda-club-p-chimganskie-gori-priroda-krasivo-foto-2.jpg" alt="">
-                            <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                        </li>
-                        <li>
-                            <img src="https://avatars.mds.yandex.net/i?id=fbd0232518851ea0ca9ad08b24b37e08-4569669-images-thumbs&ref=rim&n=33&w=281&h=188" alt="">
-                            <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                        </li>
-                        <li>
-                            <img src="https://static.smartafisha.ru/photo/training/25/37/253760/photo_1888254_5bffed071f3b4.jpg" alt="">
-                            <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                        </li>
-                        <li>
-                            <img src="https://ev-travel.ru/assets/gallery/120/3115.jpg" alt="">
-                            <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                        </li>
-                        <li>
-                            <img src="https://vsegda-pomnim.com/uploads/posts/2022-04/1649205935_30-vsegda-pomnim-com-p-priroda-samarkanda-foto-31.jpg" alt="">
-                            <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                        </li>
-                        <li>
-                            <img src="https://priroda.club/uploads/posts/2021-12/1639602508_49-priroda-club-p-polya-makov-v-krimu-priroda-kraisvo-foto-52.jpg" alt="">
-                            <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                        </li>
-                        <li>
-                            <img src="https://animeshka.org/uploads/posts/2022-02/1644917814_7-animeshka-org-p-mountains-of-uzbekistan-priroda-foto-9.jpg" alt="">
-                            <div class="overlay-text-image"><span>Photo Arxiv</span></div>
-                        </li>
+                        {% for obj in object_list %}                          
+                            <li>
+                                <img src="{{ obj.photos.url }}">
+                                <div class="overlay-text-image"><span><a href="{{ obj.photos.url }}" download="">Yuklab olish</a></span></div>
+                            </li>
+                        {% endfor %}
                     </ul>
-                </div>
-                <div id="images-modal">
-                    <div class="images-content">
-                        <div class="fotorama" data-loop="true" data-autoplay="true" data-autoplay="500" data-nav="thumbs" data-width="100%"  data-ratio="800/600" data-minwidth="400" data-maxwidth="1000" data-minheight="200" data-maxheight="100%">
-                            <img src="https://avatars.mds.yandex.net/i?id=233d06705f31c88b22bbae50984773ed-3418372-images-thumbs&n=13" alt="">
-                            <img src="https://priroda.club/uploads/posts/2021-12/1639063815_2-priroda-club-p-chimganskie-gori-priroda-krasivo-foto-2.jpg" alt="">
-                            <img src="https://ev-travel.ru/assets/gallery/120/3115.jpg" alt="">
-                            <img src="https://vsegda-pomnim.com/uploads/posts/2022-04/1649205935_30-vsegda-pomnim-com-p-priroda-samarkanda-foto-31.jpg" alt="">
-                            <img src="https://avatars.mds.yandex.net/i?id=fbd0232518851ea0ca9ad08b24b37e08-4569669-images-thumbs&ref=rim&n=33&w=281&h=188" alt="">
-                            <img src="https://priroda.club/uploads/posts/2021-12/1639063815_2-priroda-club-p-chimganskie-gori-priroda-krasivo-foto-2.jpg" alt="">
-                            <img src="https://avatars.mds.yandex.net/i?id=3d3de0d18d452727e272c9b69b4aff1b-5092546-images-thumbs&n=13" alt="">
-                        </div>
-                        <div id="close">
-                            <div class="btn-close btn-close-white" id="close-slideshow" aria-label="Close"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="all">
-                    <button id="slideshow-btn" title="Slideshow">
-                        <!-- <span>Slideshow</span> -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-                        </svg>
-                    </button>
                 </div>
             </section>
         </div>
-    {% endblock news %}
+        <div aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                {% if is_paginated %}
+                    {% if page_obj.has_previous  %}                    
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ movies.previous_page_number }}">Ortga</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link">Ortga</a>
+                        </li>
+                    {% endif %}
+                    {% for i in page_obj.paginator.page_range %}
+                        {% if page_obj.number == i %}    
+                            <li class="page-item active"><a class="page-link" href="">{{ i }}</a></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if page_obj.has_next %}                    
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ movies.next_page_number }}">Keyingisi</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link">Keyingisi</a>
+                        </li>
+                    {% endif %}       
+                {% endif %}
+            </ul>
+        </div>
+    {% endblock cards %}
     

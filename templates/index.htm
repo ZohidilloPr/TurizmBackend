@@ -7,13 +7,26 @@
         {% include "widgets/navbar.htm" %}
     <!-- end nav -->
     <!-- start header -->
-        {% include "basesections/header.htm" %}
+        {% if '/ru/' in request.path %}     
+            {% include "basesections/header_ru.htm" %}
+        {% else %}        
+            {% include "basesections/header.htm" %}
+        {% endif %}
     <!-- end header -->
     <!-- start main -->
-        {% include "basesections/main.htm" %}
+        {% if '/ru/' in request.path %}  
+            {% include "basesections/main_ru.htm" %}
+        {% else %}
+            {% include "basesections/main.htm" %}
+        {% endif %}
     <!-- end main -->
     <!-- start footer -->
-        {% include "basesections/footer.htm" %}
+        {% if '/ru/' in request.path %}
+            {% include "basesections/footer_ru.htm" %}    
+        {% else %}
+            {% include "basesections/footer.htm" %}
+        {% endif %}
+            
     <!-- end footer -->
 {% endblock content %}
 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore ratione quae iusto voluptatibus temporibus repellendus! Quae dolorem a nulla sapiente vero dolores dicta velit ea mollitia impedit suscipit, hic dolorum!

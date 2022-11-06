@@ -1,3 +1,4 @@
+import random
 from .models import (
     Post,
     News,
@@ -24,18 +25,20 @@ def common_variables(request):
     bgNews = BackgroundImageForNews.objects.last()
     bgAreas = BackgroundImageForAreas.objects.last()
     news = News.objects.all().order_by('-add_time')[:8]
+    news_left = News.objects.all().order_by('-add_time')[:4]
     photos = PhotoArxiv.objects.all().order_by('-add_time')[:7]
     videos = VideoArxiv.objects.all().order_by('-add_time')[:3]
     slideshow = PhotoArxiv.objects.all().order_by('-add_time')[:100]
     header_slider = HeaderSlider.objects.all().order_by('-add_time')[:5]
     shrines = Post.objects.filter(navbaritem__slug='ziyoratgohlar')[:8]
+    randomBG = random.choice(PhotoArxiv.objects.all())
 
     context = {
         'news':news,
         'bgfon': BgFon,
         'bgNews':bgNews,
         'photos':photos,
-        'videos':videos,
+        'videos':videos, 
         'bgAreas':bgAreas,
         'shrines':shrines,
         'nav0':navbarName0, 
@@ -43,6 +46,8 @@ def common_variables(request):
         'nav2':navbarName2,
         'arealist':arealist,
         'web_name': web_name,
+        'randomBG': randomBG,
+        'news_left':news_left,
         'slideshow':slideshow,
         'navbaritems':navbaritems,
         'header_slider':header_slider,

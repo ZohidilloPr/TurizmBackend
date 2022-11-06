@@ -1,4 +1,5 @@
 from django.contrib import admin
+from custom_user.forms import NewPost
 from .models import (
     Post,
     News,
@@ -15,8 +16,9 @@ from .models import (
 )
 
 # Register your models here
-
-admin.site.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    form = NewPost
+admin.site.register(Post, PostAdmin)
 admin.site.register(News)
 admin.site.register(Hududlar)
 admin.site.register(PhotoArxiv)

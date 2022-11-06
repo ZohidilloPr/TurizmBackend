@@ -9,12 +9,18 @@ from main.models import (
     Hududlar, 
     PhotoArxiv,
     NavbarItems, 
+    HeaderSlider,
 )
 
 # Create your views here.
 
-def test(request):
+def Home(request):
     return render(request, 'index.htm')
+
+def Home_ru(request, path):
+    return render(request, 'index.htm', context={
+        'path':path
+    })
 
 def testPk(request):
     return render(request, 'pages/template.htm')
@@ -39,12 +45,12 @@ class NewsList(ListView):
 
 class NewsDetail(DetailView):
     model = News
-    template_name = 'onepages/newsone.html'
+    template_name = 'onepages/newsone.htm'
 
 class PhotosList(ListView):
     """ Rasmlar albomi uchun view """
     model = PhotoArxiv
-    paginate_by = 200
+    paginate_by = 50
     ordering = '-add_time'
     template_name = 'allpages/photos.htm'
 
@@ -63,4 +69,9 @@ def PostView(request, slug):
     return render(request, 'onepages/post.htm', context={
         'object':post,
         'object_nav': navbar
+    })
+def SlideView(request, slug):
+    post = HeaderSlider.objects.get(slug=slug)
+    return render(request, 'onepages/post_slide.htm', context={
+        'object':post,
     })

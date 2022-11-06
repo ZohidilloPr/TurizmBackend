@@ -23,7 +23,11 @@
         </div>
     <!-- end main -->
     <!-- start footer -->
+    {% if '/ru/' in request.path %}
+        {% include "../basesections/footer_ru.htm" %}    
+    {% else %}
         {% include "../basesections/footer.htm" %}
+    {% endif %}
     <!-- end footer -->
 {% endblock content %}
         

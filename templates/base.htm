@@ -1,5 +1,9 @@
 <!doctype html>
 {% load static %}
+{% block extrahead %}
+    <script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+    {{ block.super }}
+{% endblock %}
 <html lang="en">
     <head>
         <title>
@@ -47,10 +51,10 @@
             $('#images-modal').hide();
             $("#slideshow-btn").hide();
             $('#slideshow-btn').click(function(){
-                $('#images-modal').slideDown(1000);
+                $('#images-modal').slideDown(700);
             })
             $('#close-slideshow').click(function(){
-                $('#images-modal').slideUp(1000);
+                $('#images-modal').slideUp(700);
             })
             $('#news-row').slick({
                 dots: true,
@@ -166,12 +170,12 @@
 
             $(window).scroll(function(){
                 if (document.documentElement.scrollTop > 10) {
-                    $('#nav-head').addClass('scrol-fixed');
+                    $('.nav-head').addClass('scrol-fixed');
                     $(".to-top").show(500);
                     $("#slideshow-btn").show(500);
                     
                 } else {
-                    $('#nav-head').removeClass('scrol-fixed');
+                    $('.nav-head').removeClass('scrol-fixed');
                     $(".to-top").hide(200);
                     $("#slideshow-btn").hide(200);
                 }
@@ -202,6 +206,29 @@
                 poll_answer.show(200);
             })
         })
+        let path, domain_host, domain_protocol, domain_len, uz, ru, en, domain, url_lang, url_main
+        path = document.location.href
+        domain_host = document.location.host
+        domain_protocol = document.location.protocol
+        domain_len = `${domain_protocol}//${domain_host}`.length
+        domain = window.location.href.slice(0, domain_len)
+        if (path.includes('/en/') || path.includes('/ru/') || path.includes('/uz/')) {
+            url_lang = window.location.href.slice(domain_len, domain_len+3)
+            console.log(url_lang)
+        }
+        else{
+            url_lang = window.location.href.slice(domain_len)
+            console.log(url_lang)
+        }
+        url_main = document.location.pathname.slice(url_lang.length)
+        uz = document.getElementById('lang_uz')
+        ru = document.getElementById('lang_ru')
+        en = document.getElementById('lang_en')
+        console.log(window.location.href)
+        uz.href = `${domain_protocol}//${domain_host}/uz${url_main}`
+        ru.href = `${domain_protocol}//${domain_host}/ru${url_main}`
+        en.href = `${domain_protocol}//${domain_host}/en${url_main}`
+
     </script>
     </body>
 </html>

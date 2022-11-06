@@ -1,7 +1,7 @@
 from django.urls import path
-
 from main.views import (
-    test, 
+    Home, 
+    Home_ru,
     testPk, 
     testAll,
     PostType,
@@ -12,14 +12,15 @@ from main.views import (
     AreaList,
     AreaDetail,
     PhotosList,
+    SlideView,
 
 )
 
 urlpatterns = [
     # for test
-    path('', test),
     path('pk/', testPk),
     path('all/', testAll),
+    path('', Home, name="home"),
     path('posts/<slug>/', PostType, name="poststype"),
     path('post/<slug>/', PostView, name="postview"),
     # for news
@@ -30,8 +31,11 @@ urlpatterns = [
     
     path('areas/', AreaList.as_view(), name="areaslist"),
     path('areas/<slug>', AreaDetail.as_view(), name="areadetail"),
-    # for photo albom
 
+    # for photo albom
     path('photos/', PhotosList.as_view(), name="photoslist"), 
+
+    # for Header slider
+    path('slides/post/<slug>/', SlideView, name="slideview"), 
 
 ]
