@@ -162,7 +162,7 @@ AUTH_USER_MODEL = 'custom_user.CustomUser'
 #ckeditor config
 CKEDITOR_CONFIGS = {
     'default': {
-        'skin':'moono-dark',
+        # 'skin':'moono-dark',
         'width':'80%',
         'toolbar': 'Custom',
         'toolbar_Custom': [
