@@ -3,6 +3,15 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/django-env" />
+      <excludeFolder url="file://$MODULE_DIR$/static/admin/css" />
+      <excludeFolder url="file://$MODULE_DIR$/static/admin/fonts" />
+      <excludeFolder url="file://$MODULE_DIR$/static/admin/img" />
+      <excludeFolder url="file://$MODULE_DIR$/static/admin/js" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/ckeditor" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/ckeditor/plugins/codesnippet/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/ckeditor_uploader" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/file-icons" />
+      <excludeFolder url="file://$MODULE_DIR$/static/ckeditor/galleriffic" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

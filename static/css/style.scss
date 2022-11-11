@@ -146,7 +146,12 @@ nav{
         @include container(90%);
         justify-content: space-between;
         .brand{
+            display: flex;
+            a{
+                flex: 13%;
+            }
             span{
+                flex: 75%;
                 a{
                     color: white;
                     transition: 1s;

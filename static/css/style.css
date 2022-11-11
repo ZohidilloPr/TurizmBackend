@@ -123,6 +123,15 @@ nav .nav-in {
   margin: auto;
   justify-content: space-between;
 }
+nav .nav-in .brand {
+  display: flex;
+}
+nav .nav-in .brand a, nav .nav-in .brand main section .all button, main section .all nav .nav-in .brand button {
+  flex: 13%;
+}
+nav .nav-in .brand span {
+  flex: 75%;
+}
 nav .nav-in .brand span a, nav .nav-in .brand span main section .all button, main section .all nav .nav-in .brand span button {
   color: white;
   transition: 1s;
