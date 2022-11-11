@@ -65,7 +65,9 @@
                 </div>
             </div>
         </div>
-        <div class="footer__foot"><p>Toshkent viloyati Turizm qo'mitasi 2022 &copy;</p></div>
+        <div class="footer__foot">
+            <p>The official website of the General Directorate of Tourism <br> and Cultural Heritage of the Tashkent region &copy;</p>
+        </div>
     </footer>
 {% else %}
     <footer>
@@ -133,16 +135,11 @@
                 </div>
             </div>
         </div>
-        
-        {% if '/en/' in request.path %}    
-            <div class="footer__foot">
-                <p>The official website of the General Directorate of Tourism <br> and Cultural Heritage of the Tashkent region &copy;</p>
-            </div>
-        {% else %}
+
             <div class="footer__foot">
                 <p>Toshkent viloyati Turizm va madaniy <br> meros bosh boshqarmasi rasmiy sayti &copy;</p>
             </div>
-        {% endif %}
+
             
     </footer>
 {% endif %}
