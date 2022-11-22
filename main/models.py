@@ -64,7 +64,7 @@ class Post(M):
     author = m.ForeignKey(CustomUser, on_delete=m.SET_NULL, null=True, blank=True)
     # navbar = m.ForeignKey(NavbarName, on_delete=m.SET_NULL, null=True, blank=True)
     navbaritem = m.ForeignKey(NavbarItems, on_delete=m.SET_NULL, null=True, blank=True)
-    post_img = ResizedImageField(size=[1920, 1080],upload_to='posts/')
+    post_img = ResizedImageField(size=[2500, 1500],upload_to='posts/')
     uz_title = m.CharField(max_length=l)
     ru_title = m.CharField(max_length=l, null=True, blank=True)
     en_title = m.CharField(max_length=l, null=True, blank=True)
@@ -131,7 +131,7 @@ class BackgroundImageForAreas(M):
 
 class BackgroundImageForNews(M):
     """ Yangiliklar uchun rasmlar """
-    bg_img = ResizedImageField(size=[1920, 1080],upload_to="BackgroundImageForNews/")    
+    bg_img = ResizedImageField(size=[2500, 1500],upload_to="BackgroundImageForNews/")    
     
     def __str__(self):
         return f"{self.bg_img}"
