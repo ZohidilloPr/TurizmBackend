@@ -51,8 +51,8 @@
   color: #fff;
 }
 
-.a-hover, nav .nav-in .lang a:hover, nav .nav-in .lang main section .all button:hover, main section .all nav .nav-in .lang button:hover, nav .nav-in .navigate ul li a:hover, nav .nav-in .navigate ul li main section .all button:hover, main section .all nav .nav-in .navigate ul li button:hover, nav .nav-in .brand span a:hover, nav .nav-in .brand span main section .all button:hover, main section .all nav .nav-in .brand span button:hover {
-  text-decoration: underline !important;
+.a-hover, nav .navigate ul li a:hover, nav .navigate ul li main section .all button:hover, main section .all nav .navigate ul li button:hover, nav .nav-in .lang a:hover, nav .nav-in .lang main section .all button:hover, main section .all nav .nav-in .lang button:hover, nav .nav-in .brand span a:hover, nav .nav-in .brand span main section .all button:hover, main section .all nav .nav-in .brand span button:hover {
+  color: #03396C;
 }
 
 html {
@@ -119,6 +119,7 @@ nav {
 nav .nav-in {
   display: flex;
   align-items: center;
+  padding-bottom: 15px;
   width: 90%;
   margin: auto;
   justify-content: space-between;
@@ -126,46 +127,39 @@ nav .nav-in {
 nav .nav-in .brand {
   display: flex;
 }
+nav .nav-in .brand .brand_img {
+  width: 70px;
+  height: 70px;
+  background-size: cover !important;
+  background-repeat: repeat !important;
+  background-position: center !important;
+  background-image: url("../images/logo.png") !important;
+}
+nav .nav-in .brand .brand_border {
+  width: 3px;
+  height: 70px;
+  margin: 0 10px;
+  background-size: cover !important;
+  background-repeat: repeat !important;
+  background-position: center !important;
+  background-image: url("../images/flag_for_border.jpg") !important;
+}
 nav .nav-in .brand a, nav .nav-in .brand main section .all button, main section .all nav .nav-in .brand button {
-  flex: 13%;
+  flex: 15%;
 }
 nav .nav-in .brand span {
   flex: 75%;
+  padding: 10px;
 }
 nav .nav-in .brand span a, nav .nav-in .brand span main section .all button, main section .all nav .nav-in .brand span button {
   color: white;
-  transition: 1s;
-}
-nav .nav-in .navigate ul {
-  display: inline-block;
-  line-height: 0.5px;
-}
-nav .nav-in .navigate ul li {
-  position: relative;
-  list-style-type: none;
-}
-nav .nav-in .navigate ul li a, nav .nav-in .navigate ul li main section .all button, main section .all nav .nav-in .navigate ul li button {
-  color: white;
-}
-nav .nav-in .navigate ul li ol {
-  width: 200px;
-  padding: 15px;
-  display: none;
-  margin-top: 25px;
-  line-height: 25px;
-  position: absolute;
-  background-color: white;
-}
-nav .nav-in .navigate ul li ol li a, nav .nav-in .navigate ul li ol li main section .all button, main section .all nav .nav-in .navigate ul li ol li button {
-  color: #010C17 !important;
-}
-nav .nav-in .navigate ul li ol li a:hover, nav .nav-in .navigate ul li ol li main section .all button:hover, main section .all nav .nav-in .navigate ul li ol li button:hover {
-  color: #010C17 !important;
-  text-decoration: underline !important;
+  transition: 0.7s all ease-in-out;
+  font-size: 18px;
 }
 nav .nav-in .lang a, nav .nav-in .lang main section .all button, main section .all nav .nav-in .lang button {
   color: white;
   transition: 1s;
+  font-size: 16px;
 }
 nav .nav-in .lang a:hover, nav .nav-in .lang main section .all button:hover, main section .all nav .nav-in .lang button:hover {
   text-decoration: underline !important;
@@ -180,7 +174,62 @@ nav .nav-in .contact #phone-icon svg {
 }
 nav .nav-in .contact #phone-number {
   color: #fff;
-  font-size: 28px;
+  font-size: 26px;
+}
+nav .navigate {
+  text-align: center;
+  width: 100%;
+}
+nav .navigate ul {
+  display: inline-block;
+}
+nav .navigate ul li {
+  position: relative;
+  list-style-type: none;
+}
+nav .navigate ul li::after {
+  content: "";
+  bottom: 0;
+  left: 50%;
+  width: 0px;
+  height: 1px;
+  position: absolute;
+  background-color: #03396C;
+  transition: all ease-in-out 0.5s;
+}
+nav .navigate ul li:hover::after {
+  width: 100%;
+  left: 0;
+}
+nav .navigate ul li a, nav .navigate ul li main section .all button, main section .all nav .navigate ul li button {
+  color: white;
+  font-size: 16px;
+  transition: 0.5s all ease-in-out;
+}
+nav .navigate ul li ol {
+  padding: 0;
+  width: 200px;
+  display: none;
+  margin-top: 25px;
+  line-height: 25px;
+  position: absolute;
+  background-color: white;
+}
+nav .navigate ul li ol li {
+  padding: 10px;
+  text-align: left;
+  transition: 0.7s all ease-in-out;
+}
+nav .navigate ul li ol li:hover {
+  background-color: #03396C;
+}
+nav .navigate ul li ol li:hover a, nav .navigate ul li ol li:hover main section .all button, main section .all nav .navigate ul li ol li:hover button {
+  color: #fff;
+}
+nav .navigate ul li ol li a, nav .navigate ul li ol li main section .all button, main section .all nav .navigate ul li ol li button {
+  color: #010C17;
+  font-size: 16px;
+  transition: 0.7s all ease-in-out;
 }
 
 header {

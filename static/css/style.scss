@@ -3,6 +3,8 @@
 @import '../css/functions/functions_effect';
 
 
+$size1: 16px;
+
 // global classes
 .slick-arrow{
     border-radius: 100px;
@@ -78,7 +80,8 @@
     }
 }
 .a-hover{
-    text-decoration: underline !important;
+    color: $color1;
+    // text-decoration: underline !important;
 }
 
 // scrollbar edit start
@@ -143,18 +146,32 @@ nav{
     .nav-in{
         display: flex;
         align-items: center;
+        padding-bottom: 15px;
         @include container(90%);
         justify-content: space-between;
         .brand{
             display: flex;
+            .brand_img{
+                width: 70px;
+                height: 70px;
+                @include bg-img('../images/logo.png');
+            }
+            .brand_border{
+                width: 3px;
+                height: 70px;
+                margin: 0 10px;
+                @include bg-img('../images/flag_for_border.jpg');
+            }
             a{
-                flex: 13%;
+                flex: 15%;
             }
             span{
                 flex: 75%;
+                padding: 10px;
                 a{
                     color: white;
-                    transition: 1s;
+                    transition: 0.7s all ease-in-out;
+                    font-size: $size1 + 2;
                     &:hover{
                         @extend .a-hover;
                     }
@@ -162,45 +179,11 @@ nav{
             }
             // border: 1px solid rgb(6, 96, 74);
         }
-        .navigate{
-            // border: 1px solid red;
-            ul{
-                display: inline-block;
-                line-height: 0.5px;
-                li{
-                    position: relative;
-                    list-style-type: none;
-                    a{
-                        color: white;
-                        &:hover{
-                            @extend .a-hover;
-                        }
-                    }
-                    ol{
-                        width: 200px;
-                        padding: 15px;
-                        display: none;
-                        margin-top: 25px;
-                        line-height: 25px;
-                        position: absolute;
-                        background-color: white;
-                        li{
-                            a{
-                                color: $color4 !important;
-                                &:hover{
-                                    color: $color4 !important;
-                                    text-decoration: underline !important;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
         .lang{
             a{
                 color: white;
                 transition: 1s;
+                font-size: $size1;
                 &:hover{
                     @extend .a-hover;
                     text-decoration: underline !important;
@@ -218,7 +201,67 @@ nav{
             }
             #phone-number{
                 color: $color3;
-                font-size: 28px;
+                font-size: $size1 + 10;
+            }
+        }
+    }
+    .navigate{
+        text-align: center;
+        width: 100%;
+        // border: 1px solid red;
+        ul{
+            display: inline-block;
+            // line-height: 0.5px;
+            li{
+                position: relative;
+                list-style-type: none;
+                &::after{
+                    content: '';
+                    bottom: 0;
+                    left: 50%;
+                    width: 0px;
+                    height: 1px;
+                    position: absolute;
+                    background-color: $color1;
+                    transition: all ease-in-out .5s;
+                }
+                &:hover::after{
+                    width: 100%;
+                    left: 0;
+                }
+                a{
+                    color: white;
+                    font-size: $size1;
+                    transition: 0.5s all ease-in-out;
+                    &:hover{
+                        @extend .a-hover;
+                    }
+                }
+                ol{
+                    padding: 0;
+                    width: 200px;
+                    display: none;
+                    margin-top: 25px;
+                    line-height: 25px;
+                    position: absolute;
+                    background-color: white;
+                    li{
+                        padding: 10px;
+                        text-align: left;
+                        transition: 0.7s all ease-in-out;
+                        &:hover{
+                            background-color: $color1;
+                            a{
+                                color: $color3;
+                            }
+                        }
+                        a{
+                            color: $color4;
+                            font-size: $size1;
+                            transition: 0.7s all ease-in-out;
+                        }
+                    }
+                }
             }
         }
     }

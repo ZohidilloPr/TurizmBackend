@@ -117,7 +117,7 @@ class VideoArxiv(M):
         return f"{self.foster}"
 
 class BackgroundImage(M):
-    bg_img = ResizedImageField(size=[1920, 1080],upload_to='backgroundImage/')
+    bg_img = ResizedImageField(size=[5000, 5000],upload_to='backgroundImage/')
 
     def __str__(self):
         return str(self.bg_img)
