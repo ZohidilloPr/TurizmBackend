@@ -22,6 +22,8 @@ def common_variables(request):
     navbarName0 = NavbarName.objects.all()[0]
     navbarName1 = NavbarName.objects.all()[1]
     navbarName2 = NavbarName.objects.all()[2]
+    navbarName3 = NavbarName.objects.all()[3]
+    navbarName4 = NavbarName.objects.all()[4]
     bgNews = BackgroundImageForNews.objects.last()
     bgAreas = BackgroundImageForAreas.objects.last()
     news = News.objects.all().order_by('-add_time')[:8]
@@ -44,6 +46,8 @@ def common_variables(request):
         'nav0':navbarName0, 
         'nav1':navbarName1, 
         'nav2':navbarName2,
+        'nav3':navbarName3,
+        'nav4':navbarName4,
         'arealist':arealist,
         'web_name': web_name,
         'randomBG': randomBG,
