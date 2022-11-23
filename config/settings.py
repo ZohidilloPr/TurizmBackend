@@ -89,23 +89,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'turizm_db',
-#         'USER': 'turizmadmin',
-#         'PASSWORD': 'database_turizm',
-#         'HOST': 'localhost',
-#         'PORT': '',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'turizm_db',
+        'USER': 'turizmadmin',
+        'PASSWORD': 'database_turizm',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -141,20 +141,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-# STATIC_URL = '/home/zohidillo/turizm/static/'
-# STATIC_ROOT = '/home/zohidillo/turizm/static/'
+STATIC_URL = '/home/zohidillo/turizm/static/'
+STATIC_ROOT = '/home/zohidillo/turizm/static/'
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATIC_URL = 'static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'static/')
 ]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# MEDIA_URL = '/home/zohidillo/turizm/media/'
-# MEDIA_ROOT = '/home/zohidillo/turizm/media/'
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = '/home/zohidillo/turizm/media/'
+MEDIA_ROOT = '/home/zohidillo/turizm/media/'
+# MEDIA_URL = 'media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # custom user
 AUTH_USER_MODEL = 'custom_user.CustomUser'
