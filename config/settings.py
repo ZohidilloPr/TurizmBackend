@@ -99,9 +99,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'turizm_db',
-        'USER': 'turizmadmin',
-        'PASSWORD': 'database_turizm',
+        'NAME': 'turizm2022_db',
+        'USER': 'admindata',
+        'PASSWORD': 'database2022Turizm',
         'HOST': 'localhost',
         'PORT': '',
     }
