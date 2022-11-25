@@ -38,6 +38,7 @@ class AutoDate(M):
     def __str__(self):
         return self.uz_name
 
+
 class NavbarName(M):
     """ Navbar nomi """
     uz_name = m.CharField(max_length=l)
@@ -50,6 +51,7 @@ class NavbarName(M):
     def __str__(self):
         return self.uz_name
 
+
 class NavbarItems(AutoDate):
     """ Navbarni bo'limlari uchun items """
     navbar = m.ForeignKey(NavbarName, on_delete=m.CASCADE)
@@ -58,6 +60,7 @@ class NavbarItems(AutoDate):
 
     def __str__(self):
         return super().__str__()
+
 
 class Post(M):
     """ Postlar """
@@ -78,8 +81,16 @@ class Post(M):
     post_view = m.IntegerField(default=0, null=True, blank=True)
     add_time = m.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Barcha Postlar'
+        verbose_name_plural = 'Postlar'
+
     def __str__(self):
         return self.uz_title
+
+
 
 class Hududlar(Post):
     """ Hududlar uchun post """
@@ -88,6 +99,7 @@ class Hududlar(Post):
     def __str__(self):
         return super().__str__()
 
+
 class News(Post):
     """ Yangiliklar uchun """
     navbar = m.ForeignKey(NavbarName,on_delete=m.SET_NULL, null=True, blank=True)
@@ -95,11 +107,13 @@ class News(Post):
     def __str__(self):
         return super().__str__()
  
+
 class WebSiteName(AutoDate):
     logo = ResizedImageField(size=[1920, 1080],upload_to='logo/', default='default/logo.png')
     """ NavBardagi web site nomi """
     def __str__(self):
         return super().__str__()
+
 
 class PhotoArxiv(M):
     photos = ResizedImageField(size=[1920, 1080], upload_to='photoArxiv/')
@@ -116,11 +130,13 @@ class VideoArxiv(M):
     def __str__(self):
         return f"{self.foster}"
 
+
 class BackgroundImage(M):
     bg_img = ResizedImageField(size=[5000, 5000],upload_to='backgroundImage/')
 
     def __str__(self):
         return str(self.bg_img)
+
 
 class BackgroundImageForAreas(M):
     """ Hududlar uchun rasmlar """
@@ -129,6 +145,7 @@ class BackgroundImageForAreas(M):
     def __str__(self):
         return f"{self.bg_img}"
 
+
 class BackgroundImageForNews(M):
     """ Yangiliklar uchun rasmlar """
     bg_img = ResizedImageField(size=[2500, 1500],upload_to="BackgroundImageForNews/")    
@@ -136,11 +153,13 @@ class BackgroundImageForNews(M):
     def __str__(self):
         return f"{self.bg_img}"
 
+
 class HeaderSlider(Post):
     """ Headerdagi carousel uchun """
 
     def __str__(self):
         return super().__str__()
+
 
 class AboutUs(M):
     navbar = m.ForeignKey(NavbarName, on_delete=m.SET_NULL, null=True)
