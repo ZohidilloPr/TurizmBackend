@@ -2,6 +2,8 @@ import random
 from .models import (
     Post,
     News,
+    AboutUs,
+    Document,
     Hududlar,
     NavbarName,
     PhotoArxiv,
@@ -15,7 +17,9 @@ from .models import (
 )
 
 def common_variables(request):
+    about_us = AboutUs.objects.all()
     arealist = Hududlar.objects.all()
+    documents = Document.objects.all()
     web_name = WebSiteName.objects.last()
     BgFon = BackgroundImage.objects.last()
     navbaritems = NavbarItems.objects.all()
@@ -54,6 +58,8 @@ def common_variables(request):
         'news_left':news_left,
         'slideshow':slideshow,
         'navbaritems':navbaritems,
+        'aboutus_items': about_us,
+        'document_items': documents,
         'header_slider':header_slider,
     }
     return context

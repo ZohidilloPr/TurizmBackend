@@ -141,3 +141,46 @@ class HeaderSlider(Post):
 
     def __str__(self):
         return super().__str__()
+
+class AboutUs(M):
+    navbar = m.ForeignKey(NavbarName, on_delete=m.SET_NULL, null=True)
+    title_uz = m.CharField(max_length=l, verbose_name="Sarlovha", help_text="Sarlovha matning o'zbekcha talqini")
+    title_ru = m.CharField(max_length=l, verbose_name="Sarlovha", help_text="Sarlovha matning rus tilidagi talqini")
+    title_en = m.CharField(max_length=l, verbose_name="Sarlovha", help_text="Sarlovha matning ingiliz tilidagi talqini")
+    post_uz = RichTextUploadingField()
+    post_ru = RichTextUploadingField(null=True, blank=True)
+    post_en = RichTextUploadingField(null=True, blank=True)
+    post_view = m.IntegerField(default=0)
+    slug = m.SlugField(max_length=l, unique=True)
+    add_time = m.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Biz xaqimizda'
+        verbose_name_plural = 'Biz xaqimizda'                                                                            
+
+    def __str__(self):
+        return self.title_uz
+
+
+class Document(M):
+    navbar = m.ForeignKey(NavbarName, on_delete=m.SET_NULL, null=True)
+    title_uz = m.CharField(max_length=l, verbose_name="Sarlovha", help_text="Sarlovha matning o'zbekcha talqini")
+    title_ru = m.CharField(max_length=l, verbose_name="Sarlovha", help_text="Sarlovha matning rus tilidagi talqini")
+    title_en = m.CharField(max_length=l, verbose_name="Sarlovha", help_text="Sarlovha matning ingiliz tilidagi talqini")
+    post_uz = RichTextUploadingField()
+    post_ru = RichTextUploadingField(null=True, blank=True)
+    post_en = RichTextUploadingField(null=True, blank=True)
+    post_view = m.IntegerField(default=0)
+    slug = m.SlugField(max_length=l, unique=True)
+    add_time = m.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Hujjatlar'
+        verbose_name_plural = 'Ma\'muriy-huquqiy hujjatlar'                                                                            
+
+    def __str__(self):
+        return self.title_uz

@@ -32,12 +32,22 @@
             </ul>
             <ul>
                 <li>
-                    <a href="/">{{ nav3.ru_name | title }}</a>
+                    <a href="/" id="about">{{ nav3.ru_name | title }}</a>
+                    <ol id="about_items">
+                        {% for uz in aboutus_items %}
+                            <li><a href="">{{ uz.title_ru | title }}</a></li>
+                        {% endfor %}
+                    </ol>
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="/">{{ nav4.ru_name | title }}</a>
+                    <a href="/" id="document">{{ nav4.ru_name | title }}</a>
+                    <ol id="document_items">
+                        {% for uz in document_items %}
+                            <li><a href="">{{ uz.title_ru | title }}</a></li>
+                        {% endfor %}
+                    </ol>
                 </li>
             </ul>
             <ul>
@@ -101,12 +111,22 @@
             </ul>
             <ul>
                 <li>
-                    <a href="/">{{ nav3.en_name | title }}</a>
+                    <a href="/" id="about">{{ nav3.en_name | title }}</a>
+                    <ol id="about_items">
+                        {% for uz in aboutus_items %}
+                            <li><a href="">{{ uz.title_en | title }}</a></li>
+                        {% endfor %}
+                    </ol>   
                 </li>
             </ul>
             <ul>
                 <li>
-                    <a href="/">{{ nav4.en_name | title }}</a>
+                    <a href="/" id="document">{{ nav4.en_name | title }}</a>
+                    <ol id="document_items">
+                        {% for uz in document_items %}
+                            <li><a href="">{{ uz.title_en | title }}</a></li>
+                        {% endfor %}
+                    </ol>
                 </li>
             </ul>
             <ul>
@@ -169,14 +189,25 @@
             </ul>
             <ul>
                 <li>
-                    <a href="/">{{ nav3.uz_name | title }}</a>
+                    <a  href="/" id="about">{{ nav3.uz_name | title }}</a>
+                    <ol id="about_items">
+                        {% for uz in aboutus_items %}
+                            <li><a href="">{{ uz.title_uz | title }}</a></li>
+                        {% endfor %}
+                    </ol>
+                </li>
+            </ul> 
+            <ul>
+                <li>
+                    <a href="/" id="document">{{ nav4.uz_name | title }}</a>
+                    <ol id="document_items">
+                        {% for uz in document_items %}
+                            <li><a href="">{{ uz.title_uz | title }}</a></li>
+                        {% endfor %}
+                    </ol>
                 </li>
             </ul>
             <ul>
-                <li>
-                    <a href="/">{{ nav4.uz_name | title }}</a>
-                </li>
-            </ul>
             <ul>
                 <li>
                     <a href="" id="hudud">{{ nav0.uz_name | title }}</a>

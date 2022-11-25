@@ -184,19 +184,47 @@
             let area = $('#hudud');
             let area2 = $('#area');
             let space = $('#space');
+            let about = $('#about');
             let spaces2 = $('#spaces');
+            let documents = $('#document');
+            let about_items = $('#about_items');
+            let document_items = $('#document_items');
+
+            documents.on('mouseenter', function(){
+                area2.slideUp(500);
+                spaces2.slideUp(500);
+                about_items.slideUp(500);
+                document_items.slideDown(500);
+            });
+
+            about.on('mouseenter', function(){
+                area2.slideUp(500);
+                spaces2.slideUp(500);
+                about_items.slideDown(500);
+                document_items.slideUp(500);
+
+            });
             area.on('mouseenter', function(){
                 area2.slideDown(500);
                 spaces2.slideUp(500);
+                about_items.slideUp(500);
+                document_items.slideUp(500);
+
             });
             space.on('mouseenter', function(){
                 area2.slideUp(500);
                 spaces2.slideDown(500);
+                about_items.slideUp(500);
+                document_items.slideUp(500);
+
             });
             $(window).click(function(){
-                if (area2.is(':visible') || spaces2.is(':visible')) {
+                if (area2.is(':visible') || spaces2.is(':visible') || about_items.is(':visible') || document_items.is(':visible')){
                     area2.slideUp(500);
                     spaces2.slideUp(500);
+                    about_items.slideUp(500);
+                    document_items.slideUp(500);
+
                 }
             });
             let poll_form = $('.poll_question_form .vote');
